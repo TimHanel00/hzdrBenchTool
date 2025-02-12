@@ -1,0 +1,184 @@
+Randomness seeded to: 3716418234
+Kernels: Init, Copy, Mul, Add, Triad, Dot Kernels
+cpu::Platform
+name: Intel(R) Core(TM) i7-8750H CPU @ 2.20GHz id=0
+multiProcessorCount: 12
+warpSize: 1
+maxThreadsPerBlock: 4294967295
+
+used exec CpuSerial
+
+
+AcceleratorType:CpuSerial
+NumberOfRuns:2
+Precision:single
+DataSize(items):262144
+DeviceName:Intel(R) Core(TM) i7-8750H CPU @ 2.20GHz id=0
+WorkDivInit :frames={4} frameExtent={1024}
+WorkDivCopy :frames={4} frameExtent={1024}
+WorkDivMult :frames={4} frameExtent={1024}
+WorkDivAdd  :frames={4} frameExtent={1024}
+WorkDivTriad:frames={4} frameExtent={1024}
+WorkDivDot  :frames={256} frameExtent={1024}
+AccToHost Memcpy Time(sec):0.00186835
+Kernels         Bandwidths(GB/s) MinTime(s) MaxTime(s) AvgTime(s) DataUsage(MB) 
+ AddKernel       50.769          6.1962e-05 6.1962e-05 6.1962e-05 3.1457 
+ CopyKernel      28.232          7.4284e-05 7.4284e-05 7.4284e-05 2.0972 
+ DotKernel       2.3791          0.00088149 0.00088149 0.00088149 2.0972 
+ InitKernel      2.0481          0.0015359 0.0015359 0.0015359 3.1457 
+ MultKernel      44.128          4.7524e-05 4.7524e-05 4.7524e-05 2.0972 
+ TriadKernel     50.594          6.2176e-05 6.2176e-05 6.2176e-05 3.1457 
+
+Kernels: Init, Copy, Mul, Add, Triad, Dot Kernels
+cpu::Platform
+name: Intel(R) Core(TM) i7-8750H CPU @ 2.20GHz id=0
+multiProcessorCount: 12
+warpSize: 1
+maxThreadsPerBlock: 4294967295
+
+used exec CpuOmpBlocks
+
+
+AcceleratorType:CpuOmpBlocks
+NumberOfRuns:2
+Precision:single
+DataSize(items):262144
+DeviceName:Intel(R) Core(TM) i7-8750H CPU @ 2.20GHz id=0
+WorkDivInit :frames={4} frameExtent={1024}
+WorkDivCopy :frames={4} frameExtent={1024}
+WorkDivMult :frames={4} frameExtent={1024}
+WorkDivAdd  :frames={4} frameExtent={1024}
+WorkDivTriad:frames={4} frameExtent={1024}
+WorkDivDot  :frames={256} frameExtent={1024}
+AccToHost Memcpy Time(sec):0.00244589
+Kernels         Bandwidths(GB/s) MinTime(s) MaxTime(s) AvgTime(s) DataUsage(MB) 
+ AddKernel       99.731          3.1542e-05 3.1542e-05 3.1542e-05 3.1457 
+ CopyKernel      74.52           2.8142e-05 2.8142e-05 2.8142e-05 2.0972 
+ DotKernel       14.74           0.00014227 0.00014227 0.00014227 2.0972 
+ InitKernel      3.8395          0.0008193 0.0008193 0.0008193 3.1457 
+ MultKernel      72.428          2.8955e-05 2.8955e-05 2.8955e-05 2.0972 
+ TriadKernel     99.284          3.1684e-05 3.1684e-05 3.1684e-05 3.1457 
+
+Kernels: Init, Copy, Mul, Add, Triad, Dot Kernels
+cpu::Platform
+name: Intel(R) Core(TM) i7-8750H CPU @ 2.20GHz id=0
+multiProcessorCount: 12
+warpSize: 1
+maxThreadsPerBlock: 4294967295
+
+used exec CpuOmpBlocksAndThreads
+
+
+AcceleratorType:CpuOmpBlocksAndThreads
+NumberOfRuns:2
+Precision:single
+DataSize(items):262144
+DeviceName:Intel(R) Core(TM) i7-8750H CPU @ 2.20GHz id=0
+WorkDivInit :frames={4} frameExtent={1024}
+WorkDivCopy :frames={4} frameExtent={1024}
+WorkDivMult :frames={4} frameExtent={1024}
+WorkDivAdd  :frames={4} frameExtent={1024}
+WorkDivTriad:frames={4} frameExtent={1024}
+WorkDivDot  :frames={256} frameExtent={1024}
+AccToHost Memcpy Time(sec):0.00164693
+Kernels         Bandwidths(GB/s) MinTime(s) MaxTime(s) AvgTime(s) DataUsage(MB) 
+ AddKernel       0.27616         0.011391 0.011391 0.011391 3.1457 
+ CopyKernel      0.087405        0.023994 0.023994 0.023994 2.0972 
+ DotKernel       0.081639        0.025688 0.025688 0.025688 2.0972 
+ InitKernel      0.29027         0.010837 0.010837 0.010837 3.1457 
+ MultKernel      4.4005          0.00047657 0.00047657 0.00047657 2.0972 
+ TriadKernel     9.2961          0.00033839 0.00033839 0.00033839 3.1457 
+
+Kernels: Init, Copy, Mul, Add, Triad, Dot Kernels
+cpu::Platform
+name: Intel(R) Core(TM) i7-8750H CPU @ 2.20GHz id=0
+multiProcessorCount: 12
+warpSize: 1
+maxThreadsPerBlock: 4294967295
+
+used exec CpuSerial
+
+
+AcceleratorType:CpuSerial
+NumberOfRuns:2
+Precision:double
+DataSize(items):262144
+DeviceName:Intel(R) Core(TM) i7-8750H CPU @ 2.20GHz id=0
+WorkDivInit :frames={4} frameExtent={1024}
+WorkDivCopy :frames={4} frameExtent={1024}
+WorkDivMult :frames={4} frameExtent={1024}
+WorkDivAdd  :frames={4} frameExtent={1024}
+WorkDivTriad:frames={4} frameExtent={1024}
+WorkDivDot  :frames={256} frameExtent={1024}
+AccToHost Memcpy Time(sec):0.00336033
+Kernels         Bandwidths(GB/s) MinTime(s) MaxTime(s) AvgTime(s) DataUsage(MB) 
+ AddKernel       42.149          0.00014927 0.00014927 0.00014927 6.2915 
+ CopyKernel      37.916          0.00011062 0.00011062 0.00011062 4.1943 
+ DotKernel       4.5434          0.00092317 0.00092317 0.00092317 4.1943 
+ InitKernel      2.322           0.0027096 0.0027096 0.0027096 6.2915 
+ MultKernel      28.964          0.00014481 0.00014481 0.00014481 4.1943 
+ TriadKernel     42.928          0.00014656 0.00014656 0.00014656 6.2915 
+
+Kernels: Init, Copy, Mul, Add, Triad, Dot Kernels
+cpu::Platform
+name: Intel(R) Core(TM) i7-8750H CPU @ 2.20GHz id=0
+multiProcessorCount: 12
+warpSize: 1
+maxThreadsPerBlock: 4294967295
+
+used exec CpuOmpBlocks
+
+
+AcceleratorType:CpuOmpBlocks
+NumberOfRuns:2
+Precision:double
+DataSize(items):262144
+DeviceName:Intel(R) Core(TM) i7-8750H CPU @ 2.20GHz id=0
+WorkDivInit :frames={4} frameExtent={1024}
+WorkDivCopy :frames={4} frameExtent={1024}
+WorkDivMult :frames={4} frameExtent={1024}
+WorkDivAdd  :frames={4} frameExtent={1024}
+WorkDivTriad:frames={4} frameExtent={1024}
+WorkDivDot  :frames={256} frameExtent={1024}
+AccToHost Memcpy Time(sec):0.00401535
+Kernels         Bandwidths(GB/s) MinTime(s) MaxTime(s) AvgTime(s) DataUsage(MB) 
+ AddKernel       52.462          0.00011993 0.00011993 0.00011993 6.2915 
+ CopyKernel      4.3231          0.00097021 0.00097021 0.00097021 4.1943 
+ DotKernel       22.549          0.00018601 0.00018601 0.00018601 4.1943 
+ InitKernel      0.78367         0.0080282 0.0080282 0.0080282 6.2915 
+ MultKernel      30.527          0.0001374 0.0001374 0.0001374 4.1943 
+ TriadKernel     87.384          7.1998e-05 7.1998e-05 7.1998e-05 6.2915 
+
+Kernels: Init, Copy, Mul, Add, Triad, Dot Kernels
+cpu::Platform
+name: Intel(R) Core(TM) i7-8750H CPU @ 2.20GHz id=0
+multiProcessorCount: 12
+warpSize: 1
+maxThreadsPerBlock: 4294967295
+
+used exec CpuOmpBlocksAndThreads
+
+
+AcceleratorType:CpuOmpBlocksAndThreads
+NumberOfRuns:2
+Precision:double
+DataSize(items):262144
+DeviceName:Intel(R) Core(TM) i7-8750H CPU @ 2.20GHz id=0
+WorkDivInit :frames={4} frameExtent={1024}
+WorkDivCopy :frames={4} frameExtent={1024}
+WorkDivMult :frames={4} frameExtent={1024}
+WorkDivAdd  :frames={4} frameExtent={1024}
+WorkDivTriad:frames={4} frameExtent={1024}
+WorkDivDot  :frames={256} frameExtent={1024}
+AccToHost Memcpy Time(sec):0.0033723
+Kernels         Bandwidths(GB/s) MinTime(s) MaxTime(s) AvgTime(s) DataUsage(MB) 
+ AddKernel       10.008          0.00062867 0.00062867 0.00062867 6.2915 
+ CopyKernel      10.214          0.00041066 0.00041066 0.00041066 4.1943 
+ DotKernel       0.35173         0.011925 0.011925 0.011925 4.1943 
+ InitKernel      4.416           0.0014247 0.0014247 0.0014247 6.2915 
+ MultKernel      7.1602          0.00058578 0.00058578 0.00058578 4.1943 
+ TriadKernel     0.68326         0.009208 0.009208 0.009208 6.2915 
+
+===============================================================================
+All tests passed (24 assertions in 6 test cases)
+

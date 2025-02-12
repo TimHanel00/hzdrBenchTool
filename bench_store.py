@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 import os
 import re
 import sys
@@ -9,17 +10,22 @@ def custom_error():
     message="Usage: bench_store <directory> <prefixTag1> ... <prefixTag2> \n--output-dir <optional argument for The json target directory output directory, Default: current working directory>"
     sys.stderr.write(f"{message}\n")
     sys.exit(2)
-
-def load_filenames(directory, prefixes):
-    if not os.path.isdir(directory):
-        print(f"Error: The directory '{directory}' does not exist.")
-        custom_error()
-        return {}
-    
-    filenames = {}
-    for prefix in prefixes:
-        filenames[prefix] = [f for f in os.listdir(directory) if f.startswith(prefix) and f.endswith('.txt')]
-    return filenames
+def custom_file_error():
+    message="files in the target directory have to contain a number to specify the nr_of_Elements \n general format should be $tag_$nrElems"
+    sys.stderr.write(f"{message}\n")
+    sys.exit(2)
+def load_filenames(directories):
+    ret=[]
+    for directory in directories:
+        if not os.path.isdir(directory):
+            print(f"Error: The directory '{directory}' does not exist.")
+            custom_error()
+            return []
+        filenames_print=[f for f in os.listdir(directory) if os.path.isfile(os.path.join(directory, f))]
+        filenames=[(directory,f) for f in os.listdir(directory) if os.path.isfile(os.path.join(directory, f))]
+        print(f'at dir: {directory} found {filenames_print}\n')
+        ret.extend(filenames)
+    return ret
 
 def extract_accelerator_types(file_path):
     # Extract all AcceleratorTypes from the file content
@@ -95,8 +101,7 @@ def main():
         custom_error()
 
     # Parse arguments
-    directory = sys.argv[1]
-    prefixes = sys.argv[2:]
+    directories = sys.argv[1:]
 
     output_dir = None  # Default to None, which means current directory
     if '--output-dir' in sys.argv:
@@ -109,52 +114,55 @@ def main():
             custom_error("Error: '--output-dir' option requires a directory path.")
         
         # Filter out '--output-dir' and its associated directory value from the prefixes list
-        prefixes = [pref for idx, pref in enumerate(prefixes) if pref != "--output-dir" and idx != output_dir_index-2]
+        directories = [pref for idx, pref in enumerate(directories) if pref != "--output-dir" and idx != output_dir_index-1]
 # Load filenames matching the prefixes
-    filenames = load_filenames(directory, prefixes)
+    filenames = load_filenames(directories)
 
-    if filenames:
-        for key in filenames.keys():
-            print(f'Files found for prefix {key}: {filenames[key]}')
-    else:
+    if len(filenames)==0:
         print("No matching files found.")
         return
 
     # Dictionary to store final data for JSON
     float_data = {}
     double_data={}
-
     # Process each prefix and its corresponding files
-    for prefix, files in filenames.items():
-        float_prefix_data = {}
-        double_prefix_data = {}
-        # Process each file for the prefix
-        for file in files:
-            # Extract the number from the filename (e.g., cuda_24.txt -> 24)
-            match = re.search(rf"{prefix}_(\d+)\.txt", file)
-            if match:
-                prefix_number = int(match.group(1)) # Debug: extracted number from the file
+    for directory,file in filenames:
+        # Regular expression to match the desired format (prefix followed by an underscore, a number, and optional * characters)
+        match = re.search(rf"([a-zA-Z]*)(_?)(\d+)\*?", file)
+        number=0
+        prefix=""
+        if match:
+            # If the file contains a number
+            number_str = match.group(3) 
+            number = int(number_str) if number_str.isdigit() else float(number_str)
+            # Check if there's a prefix before the number
+            prefix = match.group(1) if match.group(1) and match.group(2) else "unspecified"
+        else:
+            # If the file does not contain a number, raise an error
+            custom_file_error()
+        if prefix not in float_data:
+            float_data[prefix]={}
+        if prefix not in double_data:
+            double_data[prefix]={}
+        # Extract the number from the filename (e.g., cuda_24.txt -> 24)
 
-                file_path = os.path.join(directory, file)
+        file_path = os.path.join(directory, file)
 
-                # Extract Accelerator Types from the file
-                accelerator_types = extract_accelerator_types(file_path)
+        # Extract Accelerator Types from the file
+        accelerator_types = extract_accelerator_types(file_path)
 
-                if not accelerator_types:
-                    continue  # Skip files if no accelerator types are found
+        if not accelerator_types:
+            continue  # Skip files if no accelerator types are found
 
-                # Extract kernel data from the file
-                #kernel_data = extract_kernel_data(file_path)
-                # Add data for each AcceleratorType found in the file
-                for accelerator_type, kernel_dataS in extract_kernel_data(file_path).items():
-                    float_Kernel_data=kernel_dataS[0]
-                    double_Kernel_data=kernel_dataS[1]
-                    extractInnerData(float_prefix_data,float_Kernel_data,accelerator_type,prefix_number)
-                    extractInnerData(double_prefix_data,double_Kernel_data,accelerator_type,prefix_number)
+        # Extract kernel data from the file
+        #kernel_data = extract_kernel_data(file_path)
+        # Add data for each AcceleratorType found in the file
+        for accelerator_type, kernel_dataS in extract_kernel_data(file_path).items():
+            float_Kernel_data=kernel_dataS[0]
+            double_Kernel_data=kernel_dataS[1]
+            extractInnerData(float_data[prefix],float_Kernel_data,accelerator_type,number)
+            extractInnerData(double_data[prefix],double_Kernel_data,accelerator_type,number)
                    
-        # Store the list of entries for this prefix
-        float_data[prefix] = float_prefix_data
-        double_data[prefix]= double_prefix_data
 
 
     # Generate a timestamped filename

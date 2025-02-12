@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 import json
 import sys
 import matplotlib.pyplot as plt
@@ -195,7 +196,7 @@ def main():
         kernel_name = sys.argv[3]
         byKernel(data, kernel_name)  # Call the byKernel function with the given kernel name
     else:
-        print("Invalid arguments. Usage: python script.py <json_file> --byTag $tag OR --byAcc $substringOfAccelerator OR --byKernel $kernel_name")
+        print("Invalid arguments. Usage: python script.py <json_file> --byTag $tag OR --byAcc $acc OR --byKernel $kernel_name")
         sys.exit(1)
 
 if __name__ == '__main__':

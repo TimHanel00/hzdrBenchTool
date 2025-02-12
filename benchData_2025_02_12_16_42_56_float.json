@@ -1,0 +1,826 @@
+{
+    "cuda": {
+        "CpuSerial": {
+            "AddKernel": {
+                "nr_of_elements": [
+                    24,
+                    12
+                ],
+                "bandwidth": [
+                    50.769,
+                    27.06
+                ]
+            },
+            "CopyKernel": {
+                "nr_of_elements": [
+                    24,
+                    12
+                ],
+                "bandwidth": [
+                    28.232,
+                    45.185
+                ]
+            },
+            "DotKernel": {
+                "nr_of_elements": [
+                    24,
+                    12
+                ],
+                "bandwidth": [
+                    2.3791,
+                    2.2897
+                ]
+            },
+            "InitKernel": {
+                "nr_of_elements": [
+                    24,
+                    12
+                ],
+                "bandwidth": [
+                    2.0481,
+                    2.0988
+                ]
+            },
+            "MultKernel": {
+                "nr_of_elements": [
+                    24,
+                    12
+                ],
+                "bandwidth": [
+                    44.128,
+                    28.626
+                ]
+            },
+            "TriadKernel": {
+                "nr_of_elements": [
+                    24,
+                    12
+                ],
+                "bandwidth": [
+                    50.594,
+                    42.68
+                ]
+            }
+        },
+        "CpuOmpBlocks": {
+            "AddKernel": {
+                "nr_of_elements": [
+                    24,
+                    12
+                ],
+                "bandwidth": [
+                    99.731,
+                    80.507
+                ]
+            },
+            "CopyKernel": {
+                "nr_of_elements": [
+                    24,
+                    12
+                ],
+                "bandwidth": [
+                    74.52,
+                    61.525
+                ]
+            },
+            "DotKernel": {
+                "nr_of_elements": [
+                    24,
+                    12
+                ],
+                "bandwidth": [
+                    14.74,
+                    11.062
+                ]
+            },
+            "InitKernel": {
+                "nr_of_elements": [
+                    24,
+                    12
+                ],
+                "bandwidth": [
+                    3.8395,
+                    3.8592
+                ]
+            },
+            "MultKernel": {
+                "nr_of_elements": [
+                    24,
+                    12
+                ],
+                "bandwidth": [
+                    72.428,
+                    56.755
+                ]
+            },
+            "TriadKernel": {
+                "nr_of_elements": [
+                    24,
+                    12
+                ],
+                "bandwidth": [
+                    99.284,
+                    75.318
+                ]
+            }
+        },
+        "CpuOmpBlocksAndThreads": {
+            "AddKernel": {
+                "nr_of_elements": [
+                    24,
+                    12
+                ],
+                "bandwidth": [
+                    0.27616,
+                    5.2973
+                ]
+            },
+            "CopyKernel": {
+                "nr_of_elements": [
+                    24,
+                    12
+                ],
+                "bandwidth": [
+                    0.087405,
+                    0.19801
+                ]
+            },
+            "DotKernel": {
+                "nr_of_elements": [
+                    24,
+                    12
+                ],
+                "bandwidth": [
+                    0.081639,
+                    3.6851
+                ]
+            },
+            "InitKernel": {
+                "nr_of_elements": [
+                    24,
+                    12
+                ],
+                "bandwidth": [
+                    0.29027,
+                    0.29116
+                ]
+            },
+            "MultKernel": {
+                "nr_of_elements": [
+                    24,
+                    12
+                ],
+                "bandwidth": [
+                    4.4005,
+                    4.4986
+                ]
+            },
+            "TriadKernel": {
+                "nr_of_elements": [
+                    24,
+                    12
+                ],
+                "bandwidth": [
+                    9.2961,
+                    10.493
+                ]
+            }
+        }
+    },
+    "hip": {
+        "CpuSerial": {
+            "AddKernel": {
+                "nr_of_elements": [
+                    3,
+                    5,
+                    3
+                ],
+                "bandwidth": [
+                    36.206,
+                    49.694,
+                    36.206
+                ]
+            },
+            "CopyKernel": {
+                "nr_of_elements": [
+                    3,
+                    5,
+                    3
+                ],
+                "bandwidth": [
+                    19.263,
+                    44.87,
+                    19.263
+                ]
+            },
+            "DotKernel": {
+                "nr_of_elements": [
+                    3,
+                    5,
+                    3
+                ],
+                "bandwidth": [
+                    2.0461,
+                    2.2909,
+                    2.0461
+                ]
+            },
+            "InitKernel": {
+                "nr_of_elements": [
+                    3,
+                    5,
+                    3
+                ],
+                "bandwidth": [
+                    2.2845,
+                    2.1572,
+                    2.2845
+                ]
+            },
+            "MultKernel": {
+                "nr_of_elements": [
+                    3,
+                    5,
+                    3
+                ],
+                "bandwidth": [
+                    17.415,
+                    25.442,
+                    17.415
+                ]
+            },
+            "TriadKernel": {
+                "nr_of_elements": [
+                    3,
+                    5,
+                    3
+                ],
+                "bandwidth": [
+                    39.406,
+                    31.218,
+                    39.406
+                ]
+            }
+        },
+        "CpuOmpBlocks": {
+            "AddKernel": {
+                "nr_of_elements": [
+                    3,
+                    5,
+                    3
+                ],
+                "bandwidth": [
+                    6.6835,
+                    69.587,
+                    6.6835
+                ]
+            },
+            "CopyKernel": {
+                "nr_of_elements": [
+                    3,
+                    5,
+                    3
+                ],
+                "bandwidth": [
+                    21.093,
+                    0.3071,
+                    21.093
+                ]
+            },
+            "DotKernel": {
+                "nr_of_elements": [
+                    3,
+                    5,
+                    3
+                ],
+                "bandwidth": [
+                    8.6288,
+                    15.052,
+                    8.6288
+                ]
+            },
+            "InitKernel": {
+                "nr_of_elements": [
+                    3,
+                    5,
+                    3
+                ],
+                "bandwidth": [
+                    0.74725,
+                    0.17546,
+                    0.74725
+                ]
+            },
+            "MultKernel": {
+                "nr_of_elements": [
+                    3,
+                    5,
+                    3
+                ],
+                "bandwidth": [
+                    44.732,
+                    0.67622,
+                    44.732
+                ]
+            },
+            "TriadKernel": {
+                "nr_of_elements": [
+                    3,
+                    5,
+                    3
+                ],
+                "bandwidth": [
+                    28.443,
+                    107.62,
+                    28.443
+                ]
+            }
+        },
+        "CpuOmpBlocksAndThreads": {
+            "AddKernel": {
+                "nr_of_elements": [
+                    3,
+                    5,
+                    3
+                ],
+                "bandwidth": [
+                    5.7938,
+                    7.9823,
+                    5.7938
+                ]
+            },
+            "CopyKernel": {
+                "nr_of_elements": [
+                    3,
+                    5,
+                    3
+                ],
+                "bandwidth": [
+                    4.8503,
+                    4.3712,
+                    4.8503
+                ]
+            },
+            "DotKernel": {
+                "nr_of_elements": [
+                    3,
+                    5,
+                    3
+                ],
+                "bandwidth": [
+                    4.0953,
+                    0.17663,
+                    4.0953
+                ]
+            },
+            "InitKernel": {
+                "nr_of_elements": [
+                    3,
+                    5,
+                    3
+                ],
+                "bandwidth": [
+                    2.0433,
+                    0.30679,
+                    2.0433
+                ]
+            },
+            "MultKernel": {
+                "nr_of_elements": [
+                    3,
+                    5,
+                    3
+                ],
+                "bandwidth": [
+                    4.1806,
+                    2.7617,
+                    4.1806
+                ]
+            },
+            "TriadKernel": {
+                "nr_of_elements": [
+                    3,
+                    5,
+                    3
+                ],
+                "bandwidth": [
+                    6.2367,
+                    0.26888,
+                    6.2367
+                ]
+            }
+        }
+    },
+    "unspecified": {
+        "CpuSerial": {
+            "AddKernel": {
+                "nr_of_elements": [
+                    56,
+                    7,
+                    2,
+                    3
+                ],
+                "bandwidth": [
+                    49.694,
+                    49.694,
+                    50.769,
+                    27.06
+                ]
+            },
+            "CopyKernel": {
+                "nr_of_elements": [
+                    56,
+                    7,
+                    2,
+                    3
+                ],
+                "bandwidth": [
+                    44.87,
+                    44.87,
+                    28.232,
+                    45.185
+                ]
+            },
+            "DotKernel": {
+                "nr_of_elements": [
+                    56,
+                    7,
+                    2,
+                    3
+                ],
+                "bandwidth": [
+                    2.2909,
+                    2.2909,
+                    2.3791,
+                    2.2897
+                ]
+            },
+            "InitKernel": {
+                "nr_of_elements": [
+                    56,
+                    7,
+                    2,
+                    3
+                ],
+                "bandwidth": [
+                    2.1572,
+                    2.1572,
+                    2.0481,
+                    2.0988
+                ]
+            },
+            "MultKernel": {
+                "nr_of_elements": [
+                    56,
+                    7,
+                    2,
+                    3
+                ],
+                "bandwidth": [
+                    25.442,
+                    25.442,
+                    44.128,
+                    28.626
+                ]
+            },
+            "TriadKernel": {
+                "nr_of_elements": [
+                    56,
+                    7,
+                    2,
+                    3
+                ],
+                "bandwidth": [
+                    31.218,
+                    31.218,
+                    50.594,
+                    42.68
+                ]
+            }
+        },
+        "CpuOmpBlocks": {
+            "AddKernel": {
+                "nr_of_elements": [
+                    56,
+                    7,
+                    2,
+                    3
+                ],
+                "bandwidth": [
+                    69.587,
+                    69.587,
+                    99.731,
+                    80.507
+                ]
+            },
+            "CopyKernel": {
+                "nr_of_elements": [
+                    56,
+                    7,
+                    2,
+                    3
+                ],
+                "bandwidth": [
+                    0.3071,
+                    0.3071,
+                    74.52,
+                    61.525
+                ]
+            },
+            "DotKernel": {
+                "nr_of_elements": [
+                    56,
+                    7,
+                    2,
+                    3
+                ],
+                "bandwidth": [
+                    15.052,
+                    15.052,
+                    14.74,
+                    11.062
+                ]
+            },
+            "InitKernel": {
+                "nr_of_elements": [
+                    56,
+                    7,
+                    2,
+                    3
+                ],
+                "bandwidth": [
+                    0.17546,
+                    0.17546,
+                    3.8395,
+                    3.8592
+                ]
+            },
+            "MultKernel": {
+                "nr_of_elements": [
+                    56,
+                    7,
+                    2,
+                    3
+                ],
+                "bandwidth": [
+                    0.67622,
+                    0.67622,
+                    72.428,
+                    56.755
+                ]
+            },
+            "TriadKernel": {
+                "nr_of_elements": [
+                    56,
+                    7,
+                    2,
+                    3
+                ],
+                "bandwidth": [
+                    107.62,
+                    107.62,
+                    99.284,
+                    75.318
+                ]
+            }
+        },
+        "CpuOmpBlocksAndThreads": {
+            "AddKernel": {
+                "nr_of_elements": [
+                    56,
+                    7,
+                    2,
+                    3
+                ],
+                "bandwidth": [
+                    7.9823,
+                    7.9823,
+                    0.27616,
+                    5.2973
+                ]
+            },
+            "CopyKernel": {
+                "nr_of_elements": [
+                    56,
+                    7,
+                    2,
+                    3
+                ],
+                "bandwidth": [
+                    4.3712,
+                    4.3712,
+                    0.087405,
+                    0.19801
+                ]
+            },
+            "DotKernel": {
+                "nr_of_elements": [
+                    56,
+                    7,
+                    2,
+                    3
+                ],
+                "bandwidth": [
+                    0.17663,
+                    0.17663,
+                    0.081639,
+                    3.6851
+                ]
+            },
+            "InitKernel": {
+                "nr_of_elements": [
+                    56,
+                    7,
+                    2,
+                    3
+                ],
+                "bandwidth": [
+                    0.30679,
+                    0.30679,
+                    0.29027,
+                    0.29116
+                ]
+            },
+            "MultKernel": {
+                "nr_of_elements": [
+                    56,
+                    7,
+                    2,
+                    3
+                ],
+                "bandwidth": [
+                    2.7617,
+                    2.7617,
+                    4.4005,
+                    4.4986
+                ]
+            },
+            "TriadKernel": {
+                "nr_of_elements": [
+                    56,
+                    7,
+                    2,
+                    3
+                ],
+                "bandwidth": [
+                    0.26888,
+                    0.26888,
+                    9.2961,
+                    10.493
+                ]
+            }
+        }
+    },
+    "tag": {
+        "CpuSerial": {
+            "AddKernel": {
+                "nr_of_elements": [
+                    6
+                ],
+                "bandwidth": [
+                    49.694
+                ]
+            },
+            "CopyKernel": {
+                "nr_of_elements": [
+                    6
+                ],
+                "bandwidth": [
+                    44.87
+                ]
+            },
+            "DotKernel": {
+                "nr_of_elements": [
+                    6
+                ],
+                "bandwidth": [
+                    2.2909
+                ]
+            },
+            "InitKernel": {
+                "nr_of_elements": [
+                    6
+                ],
+                "bandwidth": [
+                    2.1572
+                ]
+            },
+            "MultKernel": {
+                "nr_of_elements": [
+                    6
+                ],
+                "bandwidth": [
+                    25.442
+                ]
+            },
+            "TriadKernel": {
+                "nr_of_elements": [
+                    6
+                ],
+                "bandwidth": [
+                    31.218
+                ]
+            }
+        },
+        "CpuOmpBlocks": {
+            "AddKernel": {
+                "nr_of_elements": [
+                    6
+                ],
+                "bandwidth": [
+                    69.587
+                ]
+            },
+            "CopyKernel": {
+                "nr_of_elements": [
+                    6
+                ],
+                "bandwidth": [
+                    0.3071
+                ]
+            },
+            "DotKernel": {
+                "nr_of_elements": [
+                    6
+                ],
+                "bandwidth": [
+                    15.052
+                ]
+            },
+            "InitKernel": {
+                "nr_of_elements": [
+                    6
+                ],
+                "bandwidth": [
+                    0.17546
+                ]
+            },
+            "MultKernel": {
+                "nr_of_elements": [
+                    6
+                ],
+                "bandwidth": [
+                    0.67622
+                ]
+            },
+            "TriadKernel": {
+                "nr_of_elements": [
+                    6
+                ],
+                "bandwidth": [
+                    107.62
+                ]
+            }
+        },
+        "CpuOmpBlocksAndThreads": {
+            "AddKernel": {
+                "nr_of_elements": [
+                    6
+                ],
+                "bandwidth": [
+                    7.9823
+                ]
+            },
+            "CopyKernel": {
+                "nr_of_elements": [
+                    6
+                ],
+                "bandwidth": [
+                    4.3712
+                ]
+            },
+            "DotKernel": {
+                "nr_of_elements": [
+                    6
+                ],
+                "bandwidth": [
+                    0.17663
+                ]
+            },
+            "InitKernel": {
+                "nr_of_elements": [
+                    6
+                ],
+                "bandwidth": [
+                    0.30679
+                ]
+            },
+            "MultKernel": {
+                "nr_of_elements": [
+                    6
+                ],
+                "bandwidth": [
+                    2.7617
+                ]
+            },
+            "TriadKernel": {
+                "nr_of_elements": [
+                    6
+                ],
+                "bandwidth": [
+                    0.26888
+                ]
+            }
+        }
+    }
+}
