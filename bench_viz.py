@@ -22,16 +22,18 @@ def byKernel(data, kernel_name):
         for kernels_data in accelerators_data.values():  # Iterate over accelerator values
             kernel_set.update(kernels_data.keys())  # Add all kernel names to the set
     kernel_name=find_matching_key(kernel_name,kernel_set,"Kernel")
+    accelerators=set()
     for tag, accelerators_data in data.items():
         for accelerator, kernels_data in accelerators_data.items():
             if kernel_name in kernels_data:
+                accelerators.add(accelerator)
                 tag_set.add(tag)
 
     if not tag_set:
         print(f"Error: No data found for kernel '{kernel_name}'")
         return
 
-    num_tags = len(tag_set)
+    num_tags = len(accelerators)
     num_rows = math.ceil(num_tags / 3)
     num_cols = 3  # Maximum 3 subplots per row
 
@@ -39,18 +41,20 @@ def byKernel(data, kernel_name):
     axes = axes.flatten()  # Flatten to easily index the subplots
 
     # Create a subplot for each tag (the x-axis will represent the accelerators)
-    for idx, tag in enumerate(tag_set):
+    for idx,accel in enumerate(accelerators):
+        print(idx)
         ax = axes[idx]
-        ax.set_title(f'{tag}')
+        ax.set_title(f'{accel}')
         ax.set_xlabel('nr_of_elements')
         ax.set_ylabel('Bandwidth (GB/s)')
+        for tag in tag_set:
+            if accel in data[tag]:
 
-        # Collect the data for the specified kernel across different accelerators
-        for accelerator, kernels_data in data[tag].items():
-            if kernel_name in kernels_data:
-                nr_of_elements = kernels_data[kernel_name]['nr_of_elements']
-                bandwidth = kernels_data[kernel_name]['bandwidth']
-                ax.plot(nr_of_elements, bandwidth, label=f'{accelerator}')
+                kernels_data=data[tag][accel]
+                if kernel_name in kernels_data:
+                    nr_of_elements = kernels_data[kernel_name]['nr_of_elements']
+                    bandwidth = kernels_data[kernel_name]['bandwidth']
+                    ax.plot(nr_of_elements, bandwidth, label=f'{tag}')
 
         ax.legend()
 
