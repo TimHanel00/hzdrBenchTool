@@ -18,10 +18,12 @@ Where Tag is a optional specifier to group data sets and nr is the number of ele
 The $nr is necessary whereas files without $tag will be marked with the unspecified tag. Not using a _ will also mark them as unspecified. 
 #### Visualizing created .json files: bench_viz <json_file> --byTag $tag OR --byAcc $substringOfAccelerator OR --byKernel $kernel_name
 substrings for tag, accelerator or kernelName are also allowed (if its not ambigious)
-##### example:
+##### example 1:
 	bench_viz $pathTo/local_float.json --byAcc cpus 
 will make plots for a the specified Accelerator CpuSerial for every Kernel and Tag
+##### example 2:
 	bench_viz $pathTo/local_float.json --byKernel dot
 will make plots for a the dotKernel for every Accelerator and Tag
+##### example 3:
 	bench_viz $pathTo/local_float.json --byTag hal
 will make plots for a the specified Tag: hal, for every Kernel and Accelerator
