@@ -1,4 +1,6 @@
 ## Small Repository Providing a data storing and vizualization Tool for the Alpaka Research Group (https://github.com/alpaka-group/alpaka)
+### Dependencies (only for bench_viz):
+	pip install matplotlib (might have to use --break-system-packages)
 ### for manual local use:
 	chmod +x ./bin/bench_store
 	./bin/bench_store --args	
@@ -8,7 +10,7 @@
 	chmod +x ./install
 	./install
 will add both skripts to your ~/.bashrc and make them executable  \
-you can now use bench_store and bench_viz from the command line  \
+you can now use bench_store and bench_viz from the command line
 ### How to use it
 #### Storing data into .json files:
 	bench_store $dir1 ... $dirN --output-dir $pathToYourOutputDir

@@ -1,8 +1,6 @@
 #!/bin/bash
 
-# Get the parent directory of the script's location
 SCRIPT_DIR="$(dirname "$(dirname "$(realpath "$0")")")"
 
 SCRIPT_NAME="$(basename "$0")"
-# Call the Python script from the parent directory
 python3 "$SCRIPT_DIR/$SCRIPT_NAME.py" "$@"
