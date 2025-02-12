@@ -66,15 +66,11 @@ def byKernel(data, kernel_name):
     plt.tight_layout()
     plt.show()
 # Function to generate plots by tag (e.g., cuda, hip)
-def plot_by_tag(data, tag):
-    tag=find_matching_key(tag,data.keys(),"Tags")
+def plot_(data):
     # Ensure that we have data for the requested tag
-    if tag not in data:
-        
-        print(f"Error: No data found for tag '{tag}'")
-        return
-    
-    accelerators = list(data[tag].keys())
+    accelerators=set()
+    for tag in data.keys():
+        accelerators.update(data[tag].keys())
 
     num_accelerators = len(accelerators)
 
@@ -91,19 +87,30 @@ def plot_by_tag(data, tag):
         ax.set_title(f'{accelerator_type}')
         ax.set_xlabel('Number of Elements')
         ax.set_ylabel('Bandwidth (GB/s)')
-        kernels_list = data[tag][accelerator_type]
-        xs=set()
-        ys={}
-        # Loop through the list of kernel data
-        for kernel_name,val in kernels_list.items():
-            x,y=val['nr_of_elements'],val['bandwidth']
-            ax.plot(x, y, label=f"{kernel_name}")
+        kernelData={}
+        for tag in data.keys():
+            kernels_list = data[tag][accelerator_type]
+            xs=set()
+            ys={}
+            # Loop through the list of kernel data
+            for kernel_name,val in kernels_list.items():
+                if kernel_name not in kernelData:
+                    kernelData[kernel_name]=[]
+                if len(kernelData[kernel_name])<1:
+                    kernelData[kernel_name].append(val['nr_of_elements'])
+                elif len(kernelData[kernel_name])<2:   
+                    kernelData[kernel_name].append(val['bandwidth'])
+                else:
+                    kernelData[kernel_name][0].extend(val['nr_of_elements'])
+                    kernelData[kernel_name][1].extend(val['bandwidth'])
+        for key in kernelData.keys():
+            ax.scatter(kernelData[key][0], kernelData[key][1], label=f"{key}")
         ax.legend()
 
     # Turn off any unused subplots
     for i in range(num_accelerators, len(axes)):
         axes[i].axis('off')
-    fig.suptitle(f'Benchmark visualization for Tag: {tag}')
+    fig.suptitle(f'Benchmark visualization for DataSet')
     plt.tight_layout()
     plt.show()
 
@@ -155,6 +162,46 @@ def byAccelerator(data, accelerator_type):
     fig.suptitle(f'Benchmark visualization for Accelerator: {accelerator_type}')
     plt.tight_layout()
     plt.show()
+def plot_by_tag(data, tag):
+    tag=find_matching_key(tag,data.keys(),"Tags")
+    # Ensure that we have data for the requested tag
+    if tag not in data:
+        
+        print(f"Error: No data found for tag '{tag}'")
+        return
+    
+    accelerators = list(data[tag].keys())
+
+    num_accelerators = len(accelerators)
+
+    # Calculate grid dimensions: 3 subplots per row
+    num_rows = math.ceil(num_accelerators / 3)
+    num_cols = 3  # Maximum 3 subplots per row
+
+    fig, axes = plt.subplots(num_rows, num_cols, figsize=(15, num_rows * 5))  # Adjust figsize as needed
+    axes = axes.flatten()  # Flatten to easily index the subplots
+
+    # Create a subplot for each accelerator (e.g., 'CpuSerial', 'CpuOmpBlocks')
+    for idx, accelerator_type in enumerate(accelerators):
+        ax = axes[idx]
+        ax.set_title(f'{accelerator_type}')
+        ax.set_xlabel('Number of Elements')
+        ax.set_ylabel('Bandwidth (GB/s)')
+        kernels_list = data[tag][accelerator_type]
+        xs=set()
+        ys={}
+        # Loop through the list of kernel data
+        for kernel_name,val in kernels_list.items():
+            x,y=val['nr_of_elements'],val['bandwidth']
+            ax.plot(x, y, label=f"{kernel_name}")
+        ax.legend()
+
+    # Turn off any unused subplots
+    for i in range(num_accelerators, len(axes)):
+        axes[i].axis('off')
+    fig.suptitle(f'Benchmark visualization for Tag: {tag}')
+    plt.tight_layout()
+    plt.show()
 
 # Ensure you import your plotting functions here
 # from your_script import plot_by_tag, byAccelerator, byKernel
@@ -178,7 +225,7 @@ def find_matching_key(substring, available_keys, category_name):
         sys.exit(1)
 def main():
     # Check if there are enough arguments
-    if len(sys.argv) < 3:
+    if len(sys.argv) < 2:
         print("Invalid arguments. Usage: bench_viz <json_file> --byTag $tag OR --byAcc $substringOfAccelerator OR --byKernel $kernel_name")
         sys.exit(1)
 
@@ -188,6 +235,11 @@ def main():
         data = json.load(f)
 
     # Extract the command (either --byTag, --byAcc, or --byKernel)
+    if len(sys.argv) < 3:
+        print("Warning! No selection specified, plotting scatterPlot across All data")
+        print("Usage hint: python script.py <json_file> --byTag $tag OR --byAcc $acc OR --byKernel $kernel_name")
+        plot_(data)
+        return 
     command = sys.argv[2]
 
     if command == '--byTag' and len(sys.argv) == 4:
@@ -200,8 +252,9 @@ def main():
         kernel_name = sys.argv[3]
         byKernel(data, kernel_name)  # Call the byKernel function with the given kernel name
     else:
-        print("Invalid arguments. Usage: python script.py <json_file> --byTag $tag OR --byAcc $acc OR --byKernel $kernel_name")
-        sys.exit(1)
+        plot_(data)
+        print("Usage hint: python script.py <json_file> --byTag $tag OR --byAcc $acc OR --byKernel $kernel_name")
+        #sys.exit(1)
 
 if __name__ == '__main__':
     main()

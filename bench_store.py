@@ -97,7 +97,7 @@ def extractInnerData(dest,source,accelerator_type,prefix_number):
         dest[accelerator_type][kernel]["bandwidth"].append(source[kernel])
 def main():
     ##manual argument parsing since I couldnt get costum error msg to work in argparse 
-    if len(sys.argv) < 3:
+    if len(sys.argv) < 2:
         custom_error()
 
     # Parse arguments
