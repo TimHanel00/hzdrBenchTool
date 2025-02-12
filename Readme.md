@@ -16,6 +16,7 @@ Files should be of the format: $tag_$nr. \
 Where Tag is a optional specifier to group data sets and nr is the number of elements used (X-axis argument). \
 The $nr is necessary whereas files without $tag will be marked with the unspecified tag. Not using a _ will also mark them as unspecified. 
 #### Visualizing created .json files: bench_viz <json_file> --byTag $tag OR --byAcc $substringOfAccelerator OR --byKernel $kernel_name
-substrings for tag, accelerator or kernelName are also allowed (if its not ambigious) example: \
+substrings for tag, accelerator or kernelName are also allowed (if its not ambigious)
+##### example:
 	bench_viz local_float.json --byAcc cpus 
 will make plots for a the specified Accelerator CpuSerial for every Kernel and Tag
