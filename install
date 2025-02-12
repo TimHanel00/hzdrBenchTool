@@ -1,0 +1,23 @@
+#!/bin/bash
+
+# Define tool names
+TOOLS=("bench_store" "bench_viz")
+
+# Get the absolute real path of the script's directory
+script_dir=$(dirname "$(realpath "$0")")
+
+# Make the tools executable
+for TOOL in "${TOOLS[@]}"; do
+    chmod +x "$script_dir/bin/$TOOL"
+done
+
+# Add $script_dir/bin to PATH via ~/.bashrc if not already present
+if ! grep -q "export PATH=\"$script_dir/bin:\$PATH\"" "$HOME/.bashrc"; then
+    echo "export PATH=\"$script_dir/bin:\$PATH\"" >> "$HOME/.bashrc"
+fi
+
+# Source ~/.bashrc to apply changes immediately
+source "$HOME/.bashrc"
+
+echo "Installation complete. You can now use 'bench_store' and 'bench_viz' from the command line."
+
