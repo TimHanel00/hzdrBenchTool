@@ -76,7 +76,6 @@ def extract_kernel_data(file_path):
 
     return all_kernel_data
 def extractInnerData(dest,source,accelerator_type,prefix_number):
-    print(source)
     if accelerator_type not in dest:
         dest[accelerator_type] = {}
 
