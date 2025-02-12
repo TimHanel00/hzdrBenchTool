@@ -33,3 +33,6 @@ will make plots for the dotKernel for every Accelerator and Tag
 ##### example 3:
 	bench_viz $pathTo/local_float.json --byTag hal
 will make plots for the specified Tag: hal, for every Kernel and Accelerator
+##### example 4:
+	bench_viz $pathTo/local_float.json
+will output a scatterplot (due to expected data heterogeneity) across all Tags for every kernel and Accelerator (this is highly uncouraged)
