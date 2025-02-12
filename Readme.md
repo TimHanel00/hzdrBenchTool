@@ -1,4 +1,4 @@
-## Small Repository Providing a data storing and vizualization Tool for the Alpaka 2 Benchmarks (https://github.com/psychocoderHPC/alpaka2)
+## Small Repository Providing a data storing and visualization Tool for the Alpaka 2 Benchmarks (https://github.com/psychocoderHPC/alpaka2)
 ### Dependencies (only for bench_viz):
 	pip install matplotlib (might have to use --break-system-packages)
 ### for manual local use:
